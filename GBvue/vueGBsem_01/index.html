@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="task1">
+        <p>Товаров в корзине: {{counter}}</p>
+        
+        <button 
+            v-for="button in buttons" 
+            @click="onClick(button)" 
+            :key="button.id">
+            {{button.text}}
+        </button>
+        <br>
+        <br>
+        <!-- моё решение checkAge -->
+        <!-- <p>{{ageText}}</p>
+        <button @click="checkAge(true)">Мне исполнилось 14 лет</button>
+        <button @click="checkAge(false)">Мне ещё нет 14 лет</button> -->
+        <!--  - - - - - - - - - - - -->
+        <button @click="answer(true)">Мне исполнилось 14 лет</button>
+        <button @click="answer(false)">Мне ещё нет 14 лет</button>
+        <h3 v-if="isAllowed">Можете заказать товар</h3>
+        <h3 v-else="isAllowed">Доступ закрыт</h3>
+        <br>
+        
+        
+        <button @click="flagForContent = !flagForContent">Показать ещё</button>
+        <h3 v-show="flagForContent">Lorem ipsum dolor</h3>
+        <br>
+        <button @click="toggle">{{isShown ? 'Скрыть' : 'Показать'}}</button>
+        <br>
+        <div v-if="isShown">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+
+        <br>
+        <button @click="getRandomNumber()">Генерировать случайное число</button>
+        <div>Number: {{randomNumber}} </div>
+        <div>вывод: {{setText}}</div>
+        <div>вывод через computed: {{setText2}}</div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#task1',
+            data: {
+                counter: 0,
+                buttons: [
+                    {id: 1, text: 'Buy', inCart: false},
+                    {id: 2, text: 'Buy', inCart: false},
+                    {id: 3, text: 'Buy', inCart: false},
+                    {id: 4, text: 'Buy', inCart: false}
+                ],
+                // моё решение checkAge 
+                // ageText: ''
+                // - - - - - - 
+                isAllowed: false,
+                flagForContent: false,
+                isShown: false,
+                randomNumber: 0,
+                setText: ''
+            },
+            computed: {
+                setText2() {
+                    if(this.randomNumber < 5) {
+                        return 'число меньше 5'
+                    } else if(this.randomNumber >= 5 && this.randomNumber !== 10) {
+                        return 'число в диапазоне от 5 до 9'
+                    } else {
+                        return 'число равно 10'
+                    }
+                }
+            },
+            methods: {
+                onClick (button) {
+                    if (!button.inCart){
+                        this.counter++
+                        button.inCart = true
+                        button.text = 'Товар в корзине  '
+                    }
+                    
+                },
+                // моё решение checkAge 
+                // checkAge(flag){
+                //     if(flag){
+                //         return this.ageText = 'Можете заказать товар'
+                //     } else if(!flag){
+                //         return this.ageText = 'Доступ закрыт'
+                //     }
+                // }
+                // - - - - - - - - - - - 
+                answer(answer) {
+                    this.isAllowed = answer
+                },
+                showContent(){
+                    if(true) {
+                        this.content = 'Lorem ipsum dolor sit amet'
+                    } else {
+                        this.content = ''
+                    }
+                },
+                toggle() {
+                    this.isShown = !this.isShown
+                },
+                getRandomNumber() {
+                    this.randomNumber =  Math.floor(Math.random() * 11)
+                    console.log(this.randomNumber);
+                    if(this.randomNumber < 5) {
+                        this.setText = 'число меньше 5'
+                    } else if(this.randomNumber >= 5 && this.randomNumber !== 10) {
+                        this.setText = 'число в диапазоне от 5 до 9'
+                    } else {
+                        this.setText = 'число равно 10'
+                    }
+                },
+            },
+        })
+    </script>
+</body>
+</html>

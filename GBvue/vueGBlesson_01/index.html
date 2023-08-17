@@ -20,6 +20,7 @@
         <h2>Счетчик 2</h2>
         <button v-on:click="increase(5, $event)">increase {{counter2}}</button>
         <p>{{counter2}}</p>
+        
 
         <h2 v-on:mousemove="mouseMove($event)">Mouse move {{ x }} - {{ y }} 
             <span v-on:mousemove.stop>stop text</span> 
@@ -58,7 +59,8 @@
                 increase(step, event) {
                     this.counter2 += step
                     console.log(event);
-                }
+                },
+                
             },
         })
     </script>
