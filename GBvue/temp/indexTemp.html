@@ -12,7 +12,7 @@
     <div id="test">
         <h1>Hello, {{ name.toUpperCase() }}</h1>
         <ul>
-            <li v-for="name in names" v-on:click="clickHandler">{{ name }}</li>
+            <li v-for="(name, index) in names"  @click="delThisFromArr(index)" :key="name.id">{{ name.text }}</li>
         </ul>
         <button @click="addSomeElement()">AddToArr</button>
         <button @click="delFromArr()">DelFromArr</button>
@@ -23,8 +23,14 @@
             el: "#test",
             data: {
                 name: 'Geek',
-                names: ['Frodo', 'Sam', 'Meriadoc', 'Peregrin'],
-                someText: 'Some Text'
+                names: [
+                    {text: 'Frodo'}, 
+                    {text: 'Bob'}, 
+                    {text: 'Nick'},
+                    {text: 'Ivan'},
+                    
+                ],
+                someText: {text: 'Some Text'}
             },
             methods: {
                 clickHandler() {
@@ -35,6 +41,9 @@
                 },
                 delFromArr() {
                     this.names.pop()
+                },
+                delThisFromArr(index) {
+                    this.names.splice(index, 1)
                 }
             }
         })

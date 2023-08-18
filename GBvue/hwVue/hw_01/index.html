@@ -18,10 +18,10 @@
         <p> Есть список элементов. Пользователь может добавлять новые элементы списка с текстом “Новый элемент списка” нажав на кнопку "Добавить". <br>
            * При клике на элемент списка он должен быть удален. (по желанию)</p>
         <ul>
-            <li v-for="name in names" >{{ name }}</li>
+            <li v-for="(name, index) in names"  @click="delThisFromArr(index)" :key="name.id">{{ name.text }}</li>
         </ul>
-        <button @click="addSomeElement()">AddToArr</button>
-        <button @click="delFromArr()">DelFromArr</button>
+        <button @click="addSomeElement()">Добавить</button>
+        <button @click="delFromArr()">Удалить</button>
         <hr>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -30,8 +30,14 @@
             el: '#hw_01',
             data: {
                 buttonName: 'Перевернуть',
-                names: ['Frodo', 'Sam', 'Meriadoc', 'Peregrin'],
-                someText: 'Some Text'
+                names: [
+                    {text: 'Frodo'}, 
+                    {text: 'Bob'}, 
+                    {text: 'Nick'},
+                    {text: 'Ivan'},
+                    
+                ],
+                someText: {text: 'Some Text'}
             },
             methods: {
                 reversButtonName() {
@@ -45,6 +51,9 @@
                 },
                 delFromArr() {
                     this.names.pop()
+                },
+                delThisFromArr(index) {
+                    this.names.splice(index, 1)
                 }
             }
         })
