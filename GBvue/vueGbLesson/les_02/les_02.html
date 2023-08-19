@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>LES 02</title>
+    <style>
+        .block {
+            width: 300px;
+            height: 200px;
+        }
+        .block1 {
+            width: 300px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="text" @keyup.enter="send()"> <button @click="send()">Отправить</button>
+        <h2>link elem</h2>
+        <a v-bind:href="linkHref">My new link</a>
+        <img :src="imgPhoto" alt="photo">
+        <div class="block" :style="{ backgroundColor: 'orange'}"></div>
+        <div class="block1" :style="styleBlock">Lorem ipsum dolor sit amet.</div>
+
+        <h2>heading v-model {{ modelData }}</h2>
+        <input type="text" v-model.lazy="modelData">
+        <button @click="headingText" class="heading__button">Click Heading</button>
+        <br>
+
+        <h2>Калькулятор</h2>
+        <input type="number" v-model.number="firstNum">
+        <input type="number" v-model.number="secondNum">
+        = {{ result }}
+        <div>
+            <button @click="plus">+</button>
+            <button @click="minus">-</button>
+            <button @click="mult">*</button>
+            <button @click="div">/</button>
+        </div>
+        <h2>Конструктор</h2>
+        <input type="text">
+        <input type="text">
+        <div class="block3" :style=""></div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                blockWidth: 100,
+                blockColor: 'red',
+                modelData: '',
+                linkHref: 'https://www.google.com/',
+                imgPhoto: 'img/fourtet.png',
+                firstNum: 0,
+                secondNum: 0,
+                result: 0,
+                styleBlock: {
+                    backgroundColor: 'green',
+                    color: '#fff'
+                }
+            },
+            methods: {
+                headingText() {
+                    if(this.modelData === '') {
+                        this.modelData = 'Заголовок для блока'
+                    }
+                },
+                send() {
+                    console.log('Отправили данные внутри input');
+                },
+                plus() {
+                    this.result = this.firstNum + this.secondNum
+                },
+                minus() {
+                    this.result = this.firstNum - this.secondNum
+                },
+                mult() {
+                    this.result = this.firstNum * this.secondNum
+                },
+                div() {
+                    this.result = this.firstNum / this.secondNum
+                },
+                changeBlock() {
+                    return {
+                        width: this.blockWidth,
+                        heigth: this.blockWidth,
+                        backgroundColor: this.blockColor
+                    }
+                }
+            },
+            computed: {
+                name() {
+                    return this.data 
+                },
+            },
+        })
+    </script>
+</body>
+</html>
