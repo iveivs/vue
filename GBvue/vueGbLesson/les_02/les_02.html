@@ -15,6 +15,13 @@
             width: 300px;
             height: 200px;
         }
+        .btn {
+            width: 45px;
+            height: 45px;
+        }
+        .like {
+            color: red;
+        }
     </style>
 </head>
 <body>
@@ -41,16 +48,33 @@
             <button @click="mult">*</button>
             <button @click="div">/</button>
         </div>
+        <br>
         <h2>Конструктор</h2>
-        <input type="text">
-        <input type="text">
-        <div class="block3" :style=""></div>
+        <input type="text" v-model="blockWidth">
+        <input type="text" v-model="blockColor">
+        <div class="block3"  :style="change"> Lorem, ipsum dolor.</div>
+        <br>
+        <h2>List</h2>
+        <ul>
+            <li v-for="item in listItems" :key="item.id">{{ item }}</li>
+        </ul>
+        <input type="text" v-model="newList" @keyup.enter="addItem">
+        <br>
+        <br>
+        <article v-for="article in data1" :key="article.id" class="article">
+            <h2 class="article__title">{{ article.title }} </h2>
+            <p class="article__text">{{ article.text }}</p>
+            <button class="btn" @click="likeToggle = !likeToggle" :class="{like: likeToggle}">like</button>
+        </article>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
         new Vue({
             el: '#app',
             data: {
+                likeToggle: true,
+                listItems: [1,2,3,4],
+                newList: '',
                 blockWidth: 100,
                 blockColor: 'red',
                 modelData: '',
@@ -62,7 +86,17 @@
                 styleBlock: {
                     backgroundColor: 'green',
                     color: '#fff'
+                },
+                data1: [
+                {
+                    title: 'title text',
+                    text: 'description text info element'
+                },
+                {
+                    title: 'NEW title text',
+                    text: 'NEW description text info element'
                 }
+                ]
             },
             methods: {
                 headingText() {
@@ -91,11 +125,18 @@
                         heigth: this.blockWidth,
                         backgroundColor: this.blockColor
                     }
+                },
+                addItem() {
+                    this.listItems.push(this.newList)
                 }
             },
             computed: {
-                name() {
-                    return this.data 
+                change() {
+                    return {
+                        width: `${this.blockWidth}px`,
+                        height: `${this.blockWidth}px`,
+                        backgroundColor: this.blockColor
+                    }
                 },
             },
         })

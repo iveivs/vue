@@ -18,7 +18,7 @@
         <p> Есть список элементов. Пользователь может добавлять новые элементы списка с текстом “Новый элемент списка” нажав на кнопку "Добавить". <br>
            * При клике на элемент списка он должен быть удален. (по желанию)</p>
         <ul>
-            <li v-for="(name, index) in names"  @click="delThisFromArr(index)" :key="name.id">{{ name.text }}</li>
+            <li v-for="(name, index) in names"  @click="delThisFromArr(index)" :key="name.id" v-bind:title="message">{{ name.text }}</li>
         </ul>
         <button @click="addSomeElement()">Добавить</button>
         <button @click="delFromArr()">Удалить</button>
@@ -31,13 +31,15 @@
             data: {
                 buttonName: 'Перевернуть',
                 names: [
-                    {text: 'Frodo'}, 
-                    {text: 'Bob'}, 
-                    {text: 'Nick'},
-                    {text: 'Ivan'},
+                    {text: 'One '}, 
+                    {text: 'Two '}, 
+                    {text: 'Three '},
+                    {text: 'Four '},
+                    {text: 'Five '},
                     
                 ],
-                someText: {text: 'Some Text'}
+                someText: {text: 'Some Text'},
+                message: 'Если нажать на этот элемент списка, то он удалится'
             },
             methods: {
                 reversButtonName() {
