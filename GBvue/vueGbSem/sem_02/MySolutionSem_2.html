@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sem 2</title>
+    <style>
+        img{
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" class="box"> 
+        <div class="item">
+            <img :src="product.url" alt="">
+            <p > name: {{ product.name }} <br> price: {{ product.price }}</p>
+            <button @click="sale()">Применить скидку</button>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                product: {
+                    name: 'Iphone 13',
+                    price: 123000,
+                    url: 'https://s0.rbk.ru/v6_top_pics/media/img/1/79/756625768322791.webp',
+                    btnFlag: true
+                },
+                
+
+
+            },
+            computed: {
+            
+            },
+            methods: {
+                sale() {
+                    if(this.product.btnFlag === true) {
+                        this.product.price *= 0.8 
+                        console.log(this.product.price);
+                        this.product.btnFlag = false
+                    }
+                }
+            },
+            
+
+        })
+    
+    </script>
+    
+</body>
+</html>
