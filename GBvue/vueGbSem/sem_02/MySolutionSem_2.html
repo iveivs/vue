@@ -12,12 +12,40 @@
     </style>
 </head>
 <body>
+    <!-- Задание 1
+        Вы разрабатываете страницу для отображения информации о товаре. У вас есть объект product,
+    который содержит информацию о товаре, включая название, цену и URL изображения товара. 
+    Вам необходимо отобразить эту информацию на странице с использованием v-bind.
+
+    Добавьте кнопку, которая будет изменять цену товара.
+    При нажатии на кнопку должна генерироваться скидка на товар от 1 до 20% 
+    и обновиться цена товара в соответствии с значением скидки -->
+
+    <!--  Задание 4
+    Вы разрабатываете приложение для управления списком контактов. У вас есть форма с полями "Имя", "Фамилия" и "Email", 
+    где пользователь может вводить информацию о новом контакте. 
+    После добавления контакта он должен отображаться в списке контактов. 
+    Требуется связать форму с данными и отображать список контактов на странице.-->
     <div id="app" class="box"> 
         <div class="item">
             <img :src="product.url" alt="">
             <p > name: {{ product.name }} <br> price: {{ product.price }}</p>
             <button @click="sale()">Применить скидку</button>
         </div>
+        <hr>
+        <br>
+        <label for="username">Name: </label>
+        <input type="text" v-model.lazy="inputData.name" id="username">
+        <br>
+        <br>
+        <label for="userlastname">Lastname: </label>
+        <input type="text" v-model.lazy="inputData.lastName" id="userlastname">
+        <br>
+        <br>
+        <label for="email">E-mail: </label>
+        <input type="text" v-model="inputData.email" id="email">
+        <p>name: {{ inputData.name }}</p>
+        <p>lastame: {{ inputData.lastName }}</p>
     </div>
     
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
@@ -31,12 +59,17 @@
                     url: 'https://s0.rbk.ru/v6_top_pics/media/img/1/79/756625768322791.webp',
                     btnFlag: true
                 },
+                inputData: {
+                    name: '',
+                    lastName: '',
+                    email: ''
+                }
                 
 
 
             },
             computed: {
-            
+                
             },
             methods: {
                 sale() {

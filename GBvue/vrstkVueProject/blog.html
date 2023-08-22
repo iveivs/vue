@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <title>Blog</title>
+</head>
+<body>
+    <section class="header">
+        <div class="container">
+            <div class="header__wrapper">
+                <div class="header__logo">
+                    <img class="header__logo_img" src="img/Logo.svg" alt="">
+                    <div class="header__logo_text">Interno</div>
+                </div>
+                <div class="header__nav">
+                    <ul>
+                        <li class="header__nav_list"><a href="index.html">Home</a></li>
+                        <li class="header__nav_list"><a href="">Project</a></li>
+                        <li class="header__nav_list"><a href="">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="banner">
+        <div class="banner__wrapper">
+            <div class="banner__content">
+                <div class="banner__title">Articles & News</div>
+            <div class="banner__subtitle">Home / Blog</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div v-for="item in blogItems" :key="blogItems.id" class="blog__item">   
+            <div class="articles__img">
+                <img :src="item.url" alt="picture">
+                <div class="articles__small-block">Kitchan Design</div>
+            </div>
+            <div class="articles__description">Let's Get Solution For Building Construction Work</div>
+            <div class="articles__box">
+                <div class="articles__date">26 December,2022 </div>
+                <div class="gallery__icon">
+                    <img src="img/ar_icon.svg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#blog',
+            data: {
+                blogItems: [
+                    {id:1, url: 'img/artcl1.png'}
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

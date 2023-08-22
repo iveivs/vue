@@ -205,4 +205,35 @@
   font-style: normal;
   font-weight: 400;
   margin-bottom: 20px;
+}
+
+.banner {
+  height: 356px;
+  background: url("../img/Image_laceholder.jpg") center center/cover no-repeat;
+}
+.banner__wrapper {
+  margin-top: 300px;
+  width: 503px;
+  padding-top: 180px;
+  margin: 0 auto;
+  text-align: center;
+  height: 300px;
+}
+.banner__content {
+  background-color: #fff;
+  height: 178px;
+  width: 503px;
+  padding: 41px 78px;
+  border-radius: 30px 30px 0px 0px;
+}
+.banner__title {
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+}
+.banner__subtitle {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  margin-top: 20px;
 }/*# sourceMappingURL=style.css.map */

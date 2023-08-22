@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <new-component title="Hello New Title" :counter="counter"></new-component>
+        <new-component title="Second Title" :counter="counter"></new-component>
+        <standart-comp></standart-comp>
+        <new-component :title="item" v-for="item in articles" :key="item.id"></new-component>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="compnt.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                counter: 0,
+                message: 'text msg',
+                articles: ['info artcl', 'info artcl 2']
+            },
+            methods: {
+                newInfo() {
+                    console.log('hello methods');
+                }
+            },
+            computed: {
+                newComp() {
+                    return this.message
+                }
+            }
+        })
+    </script>
+</body>
+</html>
