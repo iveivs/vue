@@ -35,30 +35,89 @@
         </div>
     </section>
 
-    <section id="blog">
-        <div v-for="item in blogItems" :key="blogItems.id" class="blog__item">   
-            <div class="articles__img">
-                <img :src="item.url" alt="picture">
-                <div class="articles__small-block">Kitchan Design</div>
+    <section id="articles" class="articles">
+        <div class="container">
+            <div class="articles__wrapper">
+                <div v-for="item in blogItems" :key="item.id" class="articles__item" :style="styleBlock">   
+                    <div class="articles__img">
+                        <img :src="item.url" alt="picture">
+                        <div class="articles__small-block">{{ item.category }}</div>
+                    </div>
+                    <div class="articles__description">{{ item.titleText }}</div>
+                    <div class="articles__box">
+                        <div class="articles__date">{{ someData }}</div>
+                        <div class="gallery__icon">
+                            <img src="img/ar_icon.svg" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="articles__description">Let's Get Solution For Building Construction Work</div>
-            <div class="articles__box">
-                <div class="articles__date">26 December,2022 </div>
-                <div class="gallery__icon">
-                    <img src="img/ar_icon.svg" alt="">
+        </div>
+        <button @click="changeBackground()">test</button>
+    </section>
+
+    <section class="footer">
+        <div class="container">
+            <div class="footer__wrapper">
+                <div class="footer__item">
+                    <div class="header__logo">
+                        <img class="header__logo_img" src="img/Logo.svg" alt="">
+                        <div class="header__logo_text">Interno</div>
+                    </div>
+                    <p class="footer__text">It is a long established fact that a reader <br> will be distracted lookings.</p>
+                    <div class="footer__social">
+                        <img src="img/twiter.svg" alt="">
+                        <img src="img/lin.svg" alt="">
+                    </div>
+                </div>
+                <div class="footer__item">
+                    <h3 class="footer__title">Pages</h3>
+                    <ul class="footer__list">
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Project</a></li>
+                        <li><a href="">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer__item">
+                    <h3 class="footer__title">Contact</h3>
+                    <p class="footer__text">
+                        55 East Birchwood Ave. Brooklyn, New York 11201 
+                        <br> <br>contact@interno.com
+                        <br> <br>(123) 456 - 7890
+                    </p>
+                    
                 </div>
             </div>
         </div>
     </section>
+    
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
         new Vue({
-            el: '#blog',
+            el: '#articles',
             data: {
                 blogItems: [
-                    {id:1, url: 'img/artcl1.png'}
-                ]
-            }
+                    {id:1, url: 'img/artcl1.png', category: 'Kitchan Design', titleText: 'Lets Get Solution For Building Construction Work'},
+                    {id:2, url: 'img/artcl2.png', category: 'Living Design', titleText: 'Low Cost Latest Invented Interior Designing Ideas.'},
+                    {id:3, url: 'img/artcl3.png' , category: 'Interior Design', titleText: 'Best For Any Office & Business Interior Solution'},
+                    {id:4, url: 'img/artcl4.png', category: 'Kitchan Design', titleText: 'Lets Get Solution For Building Construction Work'},
+                    {id:5, url: 'img/artcl5.png', category: 'Living Design', titleText: 'Low Cost Latest Invented Interior Designing Ideas.'},
+                    {id:6, url: 'img/artcl6.png' , category: 'Interior Design', titleText: 'Best For Any Office & Business Interior Solution'},
+                ],
+                someData: '26 December, 2022 ',
+                // backgroundColor: 'green'
+                styleBlock: {
+                    backgroundColor: 'white'
+                }
+                
+            },
+            methods: {
+                changeBackground() {
+                    if(this.item.id === 2){
+                        styleBlock.backgroundColor = 'green'
+                    }
+                }
+            },
         })
     </script>
 </body>
