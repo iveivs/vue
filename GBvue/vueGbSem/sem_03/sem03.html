@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>Задание</h2>
+        <p>Создание простого счетчика: Создайте компонент счетчика, <br>
+        который имеет кнопку "+" и кнопку "-", и отображает текущее значение счетчика. <br>
+            При нажатии на кнопки счетчик должен увеличиваться или уменьшаться соответственно.
+        </p>
+        <br>
+        <sem03></sem03>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        Vue.component('sem03', {
+            props: {  },
+        
+            data() {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                increment() {
+                    this.counter++
+                },
+                decrement() {
+                    this.counter--
+                }
+            },
+            template: `
+            <div>
+                <h2> {{counter}} </h2>
+                <button @click="increment()"> + </button> 
+                <button @click="decrement()"> - </button> 
+            </div> 
+            `,
+        });
+        new Vue({
+            el: '#app',
+            data: {
+
+            }
+        })
+    </script>
+</body>
+</html>

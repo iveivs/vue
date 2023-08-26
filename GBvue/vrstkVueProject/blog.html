@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/reset.css">
-    <title>Blog</title>
 </head>
 <body>
     <section class="header">
@@ -20,105 +20,70 @@
                     <ul>
                         <li class="header__nav_list"><a href="index.html">Home</a></li>
                         <li class="header__nav_list"><a href="">Project</a></li>
-                        <li class="header__nav_list"><a href="">Blog</a></li>
+                        <li class="header__nav_list"><a href="articles.html">Articles</a></li>
+                        <li class="header__nav_list"><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
-    <section class="banner">
-        <div class="banner__wrapper">
-            <div class="banner__content">
-                <div class="banner__title">Articles & News</div>
-            <div class="banner__subtitle">Home / Blog</div>
-            </div>
-        </div>
+    <section class="top">
+        <img src="img/block_bcgrnd.jpg" alt="">
     </section>
-
-    <section id="articles" class="articles">
+    <section class="blog">
         <div class="container">
-            <div class="articles__wrapper">
-                <div v-for="item in blogItems" :key="item.id" class="articles__item" :style="styleBlock">   
-                    <div class="articles__img">
-                        <img :src="item.url" alt="picture">
-                        <div class="articles__small-block">{{ item.category }}</div>
+            <div>
+                <div id="blog-box" class="blog__wrapper">
+                        <blog-left></blog-left>
                     </div>
-                    <div class="articles__description">{{ item.titleText }}</div>
-                    <div class="articles__box">
-                        <div class="articles__date">{{ someData }}</div>
-                        <div class="gallery__icon">
-                            <img src="img/ar_icon.svg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button @click="changeBackground()">test</button>
-    </section>
-
-    <section class="footer">
-        <div class="container">
-            <div class="footer__wrapper">
-                <div class="footer__item">
-                    <div class="header__logo">
-                        <img class="header__logo_img" src="img/Logo.svg" alt="">
-                        <div class="header__logo_text">Interno</div>
-                    </div>
-                    <p class="footer__text">It is a long established fact that a reader <br> will be distracted lookings.</p>
-                    <div class="footer__social">
-                        <img src="img/twiter.svg" alt="">
-                        <img src="img/lin.svg" alt="">
-                    </div>
-                </div>
-                <div class="footer__item">
-                    <h3 class="footer__title">Pages</h3>
-                    <ul class="footer__list">
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Project</a></li>
-                        <li><a href="">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer__item">
-                    <h3 class="footer__title">Contact</h3>
-                    <p class="footer__text">
-                        55 East Birchwood Ave. Brooklyn, New York 11201 
-                        <br> <br>contact@interno.com
-                        <br> <br>(123) 456 - 7890
-                    </p>
-                    
-                </div>
             </div>
         </div>
     </section>
-    
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
-        new Vue({
-            el: '#articles',
-            data: {
-                blogItems: [
-                    {id:1, url: 'img/artcl1.png', category: 'Kitchan Design', titleText: 'Lets Get Solution For Building Construction Work'},
-                    {id:2, url: 'img/artcl2.png', category: 'Living Design', titleText: 'Low Cost Latest Invented Interior Designing Ideas.'},
-                    {id:3, url: 'img/artcl3.png' , category: 'Interior Design', titleText: 'Best For Any Office & Business Interior Solution'},
-                    {id:4, url: 'img/artcl4.png', category: 'Kitchan Design', titleText: 'Lets Get Solution For Building Construction Work'},
-                    {id:5, url: 'img/artcl5.png', category: 'Living Design', titleText: 'Low Cost Latest Invented Interior Designing Ideas.'},
-                    {id:6, url: 'img/artcl6.png' , category: 'Interior Design', titleText: 'Best For Any Office & Business Interior Solution'},
-                ],
-                someData: '26 December, 2022 ',
-                // backgroundColor: 'green'
-                styleBlock: {
-                    backgroundColor: 'white'
+        Vue.component('blog-left', {
+            data() {
+                return {
+                    blogs: [
+                        { id: 0, tag: 'kitchen', title: 'Lets Get Solution for Building Construction Work', text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don t look even slightly believable.Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.'},
+                        { id: 1, tag: 'bedrom', title: 'Design sprints are great', text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered.'},
+                        { id: 2, tag: 'lorem', title: 'Lorem ipsum dolor sit.', text: 'Lorem ipsum dolor sit.'}
+                    ],
+                    tagBtn: [
+                        { tag: 'kitchen', title: 'Kitchen', id: 0},
+                        { tag: 'bedrom', title:'Bedroom', id: 1},
+                        { tag: 'lorem', title:'Lorem', id: 2},
+                    ]
                 }
-                
             },
             methods: {
-                changeBackground() {
-                    if(this.item.id === 2){
-                        styleBlock.backgroundColor = 'green'
-                    }
+                getArticleByTag(button) {
+                    // this.blogs = this.blogs.filter(elem => elem.id === index)
+                    this.blogs = this.blogs.filter(elem => elem.tag === button.tag) 
                 }
             },
+        
+            template: `
+                    <div class="blog__articles-box">
+                        <div class="blog__left-box">
+                            <div v-for="(item, index) in blogs" :key="item.id" class="blog__item" >
+                                <h2 class="blog__title"> {{ item.title }} </h2>
+                                <p> {{item.text}}</p>
+                            </div>     
+                        </div>
+                        <div class="blog__right-box">
+                            <div class="blog__btn-box">
+                                <div  v-for="(button, index) in tagBtn" @click="getArticleByTag(button)" class="blog__btn"> {{ button.title }}</div>   
+                            </div> 
+                        </div>
+                    </div>    
+            `,
+        });
+        new Vue({
+            el: "#blog-box",
         })
     </script>
+    
+
 </body>
 </html>

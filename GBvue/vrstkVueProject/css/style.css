@@ -35,15 +35,16 @@
 .header__logo_img {
   width: 34px;
 }
-.header__nav {
-  width: 243px;
-}
 .header__nav ul {
   display: flex;
+  gap: 10px;
   align-items: center;
   justify-content: space-between;
   font-size: 20px;
   font-weight: 400;
+}
+.header__nav ul li {
+  margin-right: 24px;
 }
 .header__nav ul a {
   color: #222;
@@ -245,4 +246,37 @@
   font-style: normal;
   font-weight: 400;
   margin-top: 20px;
+}
+
+.blog__title {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+.blog__wrapper {
+  margin-top: 40px;
+}
+.blog__left-box {
+  padding-right: 20px;
+}
+.blog__articles-box {
+  display: flex;
+}
+.blog__item {
+  margin-bottom: 30px;
+}
+.blog__btn-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.blog__btn {
+  min-width: 140px;
+  height: 41px;
+  background-color: #F4F0EC;
+  text-align: center;
+  padding: 9px 30px;
+  border-radius: 10px;
+}
+.blog__right-box {
+  min-width: 300px;
 }/*# sourceMappingURL=style.css.map */
