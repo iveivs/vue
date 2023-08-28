@@ -4,7 +4,7 @@ const App = {
             placeholderString: 'Введите название заметки',
             title: 'ToDo',
             inputValue: '',
-            notes: ['Заметка 1', 'Заметка 2', 'Заметка 123']
+            notes: ['Заметка 1', 'Заметка 2', 'Зам-ка']
         }
     },
     methods: {
@@ -13,14 +13,24 @@ const App = {
             this.inputValue = event.target.value
         },
         addNewNote() {
-            this.notes.push(this.inputValue)
-            this.inputValue = ''
-        },
-        inputKeyPress(event) {
-            // console.log(event.key);
-            if(event.key === 'Enter') {
-                this.addNewNote()
+            if(this.inputValue !== '') {
+                this.notes.push(this.inputValue)
+                this.inputValue = ''
             }
+            
+        },
+        // ненужная функция
+        // inputKeyPress(event) {
+        //     // console.log(event.key);
+        //     if(event.key === 'Enter') {
+        //         this.addNewNote()
+        //     }
+        // }
+        removeNote(index) {
+            this.notes.splice(index, 1)
+        },
+        toUpperCase(item) {
+            return item.toUpperCase()
         }
     },
 }

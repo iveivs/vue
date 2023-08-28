@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container pt-5" id="app" v-cloak>
+        <div class="card center">
+            <div v-html="myHtml"></div>
+            <h2 v-text="title"></h2>
+            <h2 v-once="title">{{title}}</h2>
+            <button @click="title = 'Теперь я другой текст'" class="btn">
+                Изменить текст
+            </button>
+            <br>
+            <ul class="list">
+                <li class="list-item" v-for="item in 4"> {{ item }} </li>
+                <li class="list-item" v-for="(value, key) in persone">
+                    <strong> {{ key }}</strong> 
+                    {{ value }}
+                </li>
+                <br>
+            </ul>
+            <ul class="list2" v-if="itemsArr.length" >
+                <li 
+                class="list2-item" 
+                v-for="(elem, index) in evenItems"
+                @click="itemsArr.splice(index, 1)">
+                {{ elem }}</li>
+            </ul>
+            <h3 v-else>Элементов нет</h3>
+            
+        </div>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script> -->
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -53,23 +53,30 @@
                         { tag: 'kitchen', title: 'Kitchen', id: 0},
                         { tag: 'bedrom', title:'Bedroom', id: 1},
                         { tag: 'lorem', title:'Lorem', id: 2},
-                    ]
+                    ],
+                    currentArticle: []
                 }
             },
             methods: {
                 getArticleByTag(button) {
                     // this.blogs = this.blogs.filter(elem => elem.id === index)
-                    this.blogs = this.blogs.filter(elem => elem.tag === button.tag) 
+                    this.currentArticle = this.blogs.filter(elem => elem.tag === button.tag) 
+                    // this.blogs = this.currentArticle
+                    console.log(this.currentArticle );
                 }
             },
         
             template: `
                     <div class="blog__articles-box">
                         <div class="blog__left-box">
-                            <div v-for="(item, index) in blogs" :key="item.id" class="blog__item" >
+                            <div v-for="(item, index) in blogs" :key="item.id" class="blog__item" v-if="!currentArticle.length">
                                 <h2 class="blog__title"> {{ item.title }} </h2>
                                 <p> {{item.text}}</p>
-                            </div>     
+                            </div>
+                            <div v-for="(item, index) in currentArticle" :key="item.id" class="blog__item" >
+                                <h2 class="blog__title"> {{ item.title }} </h2>
+                                <p> {{item.text}}</p>
+                            </div>    
                         </div>
                         <div class="blog__right-box">
                             <div class="blog__btn-box">
@@ -87,3 +94,4 @@
 
 </body>
 </html>
+
