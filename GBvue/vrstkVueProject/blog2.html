@@ -33,7 +33,7 @@
     <section class="blog">
         <div class="container">
             <div>
-                <div id="blog-box" class="blog__wrapper" @getindex="displayIndex(getindex)" >
+                <div id="blog-box" class="blog__wrapper"  @getindex="displayIndex(getindex)">
                         <div class="blog__left-box" >
                             <blog-left :blogs="blogs" :tagbtn="tagbtn"  ></blog-left>
                         </div>
@@ -57,7 +57,7 @@
         
             template: `
                     <div class="blog__articles-box">
-                        <div v-for="item in blogs" :key="item.id" class="blog__item" >
+                        <div v-for="item in blogs" :key="item.id" class="blog__item"  >
                             <h2 class="blog__title"> {{ item.title }} </h2>
                             <p> {{item.text}}</p>
                         </div> 
