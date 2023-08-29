@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,9 +33,9 @@
     <section class="blog">
         <div class="container">
             <div>
-                <div id="blog-box" class="blog__wrapper">
-                        <div class="blog__left-box">
-                            <blog-left :blogs="blogs" :tagbtn="tagbtn"></blog-left>
+                <div id="blog-box" class="blog__wrapper" @getindex="displayIndex(getindex)" >
+                        <div class="blog__left-box" >
+                            <blog-left :blogs="blogs" :tagbtn="tagbtn"  ></blog-left>
                         </div>
                         <div class="blog__right-box">
                             <blog-btn :tagbtn="tagbtn" :blogs="blogs"></blog-btn>
@@ -65,20 +65,23 @@
             `,
         });
         Vue.component('blog-btn', {
-            props: ['tagbtn', 'blogs'], 
+            props: ['tagbtn'], 
             data() {
                 return {
-
+                    
                 }
             },
             template: `
                 <div class="blog__btn-box">
-                    <div v-for="button in tagbtn"  @click="getArticle(button)" class="blog__btn"> {{ button.title }} </div>   
+                    
+                    <div v-for="(button, index) in tagbtn"  @click="getArticle(index)" class="blog__btn"> {{ button.title }} </div>   
                 </div>    
             `,
             methods: {
-                getArticle(button) {
-                    this.blogs = this.blogs.filter(elem => elem.tag === button.tag)
+                getArticle(index) {
+                    // this.blogs = this.blogs.filter(elem => elem.tag === button.tag)
+                    console.log('test');
+                    this.$emit('getindex', index)
                 }
             }
         });
@@ -97,8 +100,13 @@
                     {title:'Architecture'},
                     {title:'Kitchen Planning'},
                 ],
+                curentIndex: 0,
                 methods: {
-                    
+                    displayIndex(getindex) {
+                        this.curentIndex = getindex
+                        console.log(this.curentIndex);
+                        console.log('test2');
+                    }
                 }
             }
         })
@@ -106,4 +114,4 @@
     
 
 </body>
-</html> -->
+</html>
