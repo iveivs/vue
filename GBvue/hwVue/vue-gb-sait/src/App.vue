@@ -4,7 +4,10 @@
     <!-- <img alt="Vue logo" src="./assets/ar_icon.svg"> -->
     <HeaderBlock/>
     <MainBlock/>
+    <ArticlesBlock/>
+    <NumberBlock/>
     <FooterBlock/>
+    
   </div>
 </template>
 
@@ -12,6 +15,8 @@
 import HeaderBlock from './components/HeaderBlock.vue'
 import MainBlock from './components/MainBlock.vue'
 import FooterBlock from './components/FooterBlock.vue'
+import NumberBlock from './components/NumberBlock.vue'
+import ArticlesBlock from './components/ArticlesBlock.vue'
 
 export default {
   name: 'App',
@@ -19,6 +24,8 @@ export default {
     HeaderBlock,
     MainBlock,
     FooterBlock,
+    NumberBlock,
+    ArticlesBlock,
   }
 }
 </script>

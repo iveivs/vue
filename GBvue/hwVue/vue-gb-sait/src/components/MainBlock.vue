@@ -8,7 +8,8 @@
                     Be Unique</h1>
                     <p class="main__subtitle">There are many variations of the passages of
                         lorem Ipsum fromavailable, majority.</p>
-                    <div class="main__button">Get Started 
+                    <div class="main__button">
+                        <p>Get Started </p>
                         <img src="../assets/arrow.svg" alt="">
                     </div>
                 </div>
@@ -57,10 +58,15 @@ export default {
     &__button
         width: 220px    
         height: 75px
-        padding: 26px
         background: #292F36
         color: #fff
         border-radius: 18px
-        box-shadow: 0px 10px 20px 0px rgba(192, 192, 192, 0.35)
+        // box-shadow: 0px 10px 20px 0px rgba(192, 192, 192, 0.35)
         text-align: center
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 10px
+        img
+            width: 17px
 </style>
