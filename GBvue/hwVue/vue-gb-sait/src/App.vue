@@ -4,6 +4,7 @@
     <!-- <img alt="Vue logo" src="./assets/ar_icon.svg"> -->
     <HeaderBlock/>
     <MainBlock/>
+    <GalleryBlock/>
     <ArticlesBlock/>
     <NumberBlock/>
     <FooterBlock/>
@@ -17,6 +18,7 @@ import MainBlock from './components/MainBlock.vue'
 import FooterBlock from './components/FooterBlock.vue'
 import NumberBlock from './components/NumberBlock.vue'
 import ArticlesBlock from './components/ArticlesBlock.vue'
+import GalleryBlock from './components/GalleryBlock.vue'
 
 export default {
   name: 'App',
@@ -26,6 +28,7 @@ export default {
     FooterBlock,
     NumberBlock,
     ArticlesBlock,
+    GalleryBlock,
   }
 }
 </script>
@@ -49,5 +52,10 @@ export default {
   font-style: normal
   font-weight: 400
   text-align: center
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  list-style-type: none
 
 </style>

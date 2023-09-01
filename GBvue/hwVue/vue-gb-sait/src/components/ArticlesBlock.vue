@@ -9,6 +9,7 @@
 
             <div class="articles__item" v-for="article in articleItems" :key="article.id">
                 <div class="articles__img">
+                    <!-- <img :src="article.url" alt=""> -->
                     <img src="../assets/artcl1.png" alt="">
                     <div class="articles__small-block">{{ article.category }}</div>
                 </div>
@@ -16,7 +17,7 @@
                 <div class="articles__box">
                     <div class="articles__date">{{ someData }} </div>
                     <div class="gallery__icon">
-                        <img src="img/ar_icon.svg" alt="">
+                        <img src="../assets/ar_icon.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -36,14 +37,14 @@ export default {
     data() {
         return {
             articleItems: [
-                    {id:1, url: 'img/artcl1.png', category: 'Kitchan Design', titleText: 'Lets Get Solution For Building Construction Work', backgroundColor: 'white'},
-                    {id:2, url: 'img/artcl2.png', category: 'Living Design', titleText: 'Cost Latest Invented Interior Designing Ideas.', backgroundColor: '#F4F0EC'},
-                    {id:3, url: 'img/artcl3.png' , category: 'Interior Design', titleText: 'Best For Any Office & Business Interior Solution', backgroundColor: 'white'},
+                    {id:1, url: '../assets/artcl1.png', category: 'Kitchan Design', titleText: 'Lets Get Solution For Building Construction Work', backgroundColor: 'white'},
+                    {id:2, url: '../assets/artcl2.png', category: 'Living Design', titleText: 'Cost Latest Invented Interior Designing Ideas.', backgroundColor: '#F4F0EC'},
+                    {id:3, url: '../assets/artcl3.png' , category: 'Interior Design', titleText: 'Best For Any Office & Business Interior Solution', backgroundColor: 'white'},
                 ],
                 someData: '26 December, 2022 ',
         };
     },
-
+    // ../assets/artcl2.png
     mounted() {
         
     },
@@ -63,7 +64,7 @@ export default {
         gap: 27px
         align-items: center
         justify-content: space-between
-        flex-wrap: wrap
+        // flex-wrap: wrap
     &__item
         padding: 21px
         width: 382px
@@ -76,13 +77,15 @@ export default {
         // height: 289px
         // background: url("../img/artcl1.png") center (center / cover) no-repeat
         margin-bottom: 21px
+        img
+            width: 340px
     &__small-block
         position: absolute
-        top: 220px
-        left: 20px
-        height: 41px
+        // top: 220px
+        // left: 20px
+        // height: 41px
         width: 124px
-        padding: 9px
+        // padding: 9px
         border-radius: 8px 8px 8px 0px
         background-color: #fff
         text-align: center
@@ -101,4 +104,5 @@ export default {
         font-weight: 400
     &__date
         margin-left: 4px
+    
 </style>
