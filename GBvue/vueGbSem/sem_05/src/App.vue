@@ -1,15 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <AuthenticationBlock/>
+    <CartBlock/>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import AuthenticationBlock from './components/AuthenticationBlock.vue'
+import CartBlock from './components/CartBlock.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AuthenticationBlock,
+    CartBlock,
   }
 }
 </script>

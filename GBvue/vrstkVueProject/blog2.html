@@ -35,12 +35,18 @@
         <div class="container">
             <div>
                 <!-- <div id="blog-box" class="blog__wrapper"  @getindex="displayIndex(getindex)"> -->
-                <div id="blog-box" class="blog__wrapper"  @getindex="getindex">
+                <div id="blog-box" class="blog__wrapper"  >
                     <div class="blog__left-box" >
-                        <blog-left :blogs="blogs" :tagbtn="tagbtn" > </blog-left>
+                        
+                        <blog-left :blogs="blogs" :tagbtn="tagbtn" v-if="!currentArticle.length" > </blog-left>
+                        <div v-for="(item, index) in currentArticle" :key="item.id" class="blog__item" >
+                            <h2 class="blog__title"> {{ item.title }} </h2>
+                            <p> {{item.text}}</p>
+                        </div> 
                     </div>
+                    
                     <div class="blog__right-box">
-                        <blog-btn :tagbtn="tagbtn" :blogs="blogs"></blog-btn>
+                        <blog-btn :tagbtn="tagbtn" :blogs="blogs" @getarticle="getarticle"></blog-btn>
                     </div>
                 </div>
             </div>
@@ -72,14 +78,18 @@
             },
             template: `
                 <div class="blog__btn-box">
-                    <div v-for="(button, index) in tagbtn"  @click="getArticle(index)" class="blog__btn"> {{ button.title }} </div>   
+                    <div v-for="(button, index) in tagbtn"  @click="getButton(button)" class="blog__btn"> {{ button.title }} </div>   
                 </div>    
             `,
             methods: {
-                getArticle(index) {
-                    // this.blogs = this.blogs.filter(elem => elem.tag === button.tag)
-                    console.log(index);
-                    this.$emit('getindex', index)
+                // getArticle(index) {
+                //     // this.blogs = this.blogs.filter(elem => elem.tag === button.tag)
+                //     console.log(index);
+                //     this.$emit('getindex', index)
+                // },
+                getButton(button) {
+                    const newButton = button.title
+                    this.$emit('getarticle', newButton)
                 }
             }
         });
@@ -87,26 +97,24 @@
             el: "#blog-box",
             data: {
                 blogs: [
-                        { tag: 'kitchen', title: 'Lets Get Solution for Building Construction Work', text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injecthumour, or randomised words which don t look even slightly believable.Embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.'},
-                        { tag: 'bedrom', title: 'Design sprints are great', text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered.'},
+                        { tag: 'kitchen', title: 'Lets Get Solution for Building Construction Work', text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem ssing hidden in the middle of text. All tend to repeat predefined chunks as necessary.'},
+                        { tag: 'bedroom', title: 'Design sprints are great', text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered.'},
                         { tag: 'lorem', title: 'Lorem ipsum dolor sit.', text: 'Lorem ipsum dolor sit.'}
                 ],
                 tagbtn: [
-                    {title: 'Kitchen'},
-                    {title:'Bedroom'},
-                    {title:'Bulding'},
-                    {title:'Architecture'},
-                    {title:'Kitchen Planning'},
+                    {title: 'kitchen'},
+                    {title:'bedroom'},
+                    {title:'lorem'},
                 ],
                 curentIndex: 0,
+                currentArticle: [],
                 
             },
             methods: {
-                getindex(index) {
-                    this.curentIndex = index
-                    console.log('test');
-                    console.log(this.curentIndex);
+                getarticle(button) {
+                    this.currentArticle = this.blogs.filter(elem => elem.tag === button)
                 }
+
             }
         })
     </script>

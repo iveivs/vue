@@ -1,4 +1,4 @@
-# saitmebel
+# sem_05
 
 ## Project setup
 ```
