@@ -7,7 +7,7 @@
         </div>
         <div class="articles__wrapper">
 
-            <div class="articles__item" v-for="article in articleItems" :key="article.id">
+            <div class="articles__item" v-for="article in articleItems" :key="article.id" :style="article">
                 <div class="articles__img">
                     <!-- <img :src="article.url" alt=""> -->
                     <img src="../assets/artcl1.png" alt="">
@@ -21,10 +21,6 @@
                     </div>
                 </div>
             </div>
-
-            
-
-            
         </div>
     </section>
     </div>
@@ -64,7 +60,7 @@ export default {
         gap: 27px
         align-items: center
         justify-content: space-between
-        // flex-wrap: wrap
+        flex-wrap: wrap
     &__item
         padding: 21px
         width: 382px
@@ -81,11 +77,11 @@ export default {
             width: 340px
     &__small-block
         position: absolute
-        // top: 220px
-        // left: 20px
-        // height: 41px
+        top: 220px
+        left: 20px
+        height: 41px
         width: 124px
-        // padding: 9px
+        padding: 7px
         border-radius: 8px 8px 8px 0px
         background-color: #fff
         text-align: center
