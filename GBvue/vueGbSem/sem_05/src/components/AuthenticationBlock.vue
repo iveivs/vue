@@ -18,6 +18,8 @@ export default {
     data() {
         return {
             isAuthenticated: false,
+            username: '',
+            password: ''
         };
     },
 

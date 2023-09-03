@@ -7,10 +7,13 @@
             <p>Sub total: {{ item.price * item.quantity }}</p>
             <div>Total: {{ totalPrice }}</div>
         </div>
+        <TestBlock @mySupaEvemt="testListner" />
+        <p>{{ someVar }}</p>
     </div>
 </template>
 
 <script>
+import TestBlock from "@/components/TestBlock.vue";
 export default {
     name: 'CartBlock',
 
@@ -19,16 +22,17 @@ export default {
             cartItems: [
                 {id: 1, title: 'product 1', quantity: 2, price: 50},
                 {id: 2, title: 'product 2', quantity: 5, price: 100}
-            ]
+            ],
+            someVar: ''
         };
     },
-
-    mounted() {
-        
+    components: {
+        TestBlock,
     },
-
     methods: {
-        
+        testListner(data1){ 
+            this.someVar += data1.title
+    },
     },
     computed: {
         totalPrice() {
