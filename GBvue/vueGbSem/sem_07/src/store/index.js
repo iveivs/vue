@@ -46,13 +46,27 @@ export default {
     mutations: {
         ADD_ITEM_TO_CART(state, item) {
             const find = state.cartItems.find((currentItem) => currentItem.id === item.id)
-            state.cartItems.push(item)
+            if(find) {
+                find.quantity++
+            } else {
+                const newItem = {
+                    ...item, 
+                    quantity: 1,
+                }
+                state.cartItems.push(newItem)
+            }
+            
         },
         increment(state) {
             state.count++
         },
         decrement(state) {
             state.count--
+        }
+    },
+    actions: {
+        addToCart({commit}, item) {
+            commit('ADD_ITEM_TO_CART', item)
         }
     }
 }

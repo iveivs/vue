@@ -7,7 +7,7 @@
         </div>
         <div class="articles__wrapper">
 
-            <div class="articles__item" v-for="article in articleItems" :key="article.id" :style="article">
+            <div class="articles__item" v-for="article in getArticleItems" :key="article.id" :style="article">
                 <div class="articles__img">
                     <!-- <img :src="article.url" alt=""> -->
                     <img src="../assets/artcl1.png" alt="">
@@ -27,22 +27,23 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
     name: 'ArticlesBlock',
 
     data() {
         return {
-            articleItems: [
-                    {id:1, url: '../assets/artcl1.png', category: 'Kitchan Design', titleText: 'Lets Get Solution For Building Construction Work', backgroundColor: 'white'},
-                    {id:2, url: '../assets/artcl2.png', category: 'Living Design', titleText: 'Cost Latest Invented Interior Designing Ideas.', backgroundColor: '#F4F0EC'},
-                    {id:3, url: '../assets/artcl3.png' , category: 'Interior Design', titleText: 'Best For Any Office & Business Interior Solution', backgroundColor: 'white'},
-                ],
+            // articleItems: [
+            //         {id:1, url: '../assets/artcl1.png', category: 'Kitchan Design', titleText: 'Lets Get Solution For Building Construction Work', backgroundColor: 'white'},
+            //         {id:2, url: '../assets/artcl2.png', category: 'Living Design', titleText: 'Cost Latest Invented Interior Designing Ideas.', backgroundColor: '#F4F0EC'},
+            //         {id:3, url: '../assets/artcl3.png' , category: 'Interior Design', titleText: 'Best For Any Office & Business Interior Solution', backgroundColor: 'white'},
+            //     ],
                 someData: '26 December, 2022 ',
         };
     },
     // ../assets/artcl2.png
-    mounted() {
-        
+    computed: {
+        ...mapGetters(['getArticleItems'])
     },
 
     methods: {

@@ -3,10 +3,10 @@
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <img alt="Vue logo" src="./assets/ar_icon.svg"> -->
     <HeaderBlock/>
-    <MainBlock/>
-    <GalleryBlock/>
-    <ArticlesBlock/>
-    <NumberBlock/>
+    <main>
+      <router-view/>
+    </main>
+    <!-- <MainPage/> -->
     <FooterBlock/>
     
   </div>
@@ -14,21 +14,16 @@
 
 <script>
 import HeaderBlock from './components/HeaderBlock.vue'
-import MainBlock from './components/MainBlock.vue'
 import FooterBlock from './components/FooterBlock.vue'
-import NumberBlock from './components/NumberBlock.vue'
-import ArticlesBlock from './components/ArticlesBlock.vue'
-import GalleryBlock from './components/GalleryBlock.vue'
+// import MainPage from './pages/MainPage.vue'
+
 
 export default {
   name: 'App',
   components: {
     HeaderBlock,
-    MainBlock,
+    // MainPage,
     FooterBlock,
-    NumberBlock,
-    ArticlesBlock,
-    GalleryBlock,
   }
 }
 </script>

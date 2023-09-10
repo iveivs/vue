@@ -4,6 +4,7 @@
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
     <CounterComp/>
     <CounterComp2/>
+    <CartItems/>
   </div>
 </template>
 
@@ -11,6 +12,7 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import CounterComp from './components/CounterComp.vue';
 import CounterComp2 from './components/CounterComp2.vue';
+import CartItems from './components/CartItems.vue';
 
 export default {
   name: 'App',
@@ -18,6 +20,7 @@ export default {
     // HelloWorld
     CounterComp,
     CounterComp2,
+    CartItems
   }
 }
 </script>
