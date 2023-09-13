@@ -25,8 +25,11 @@
                     
 
                     <div class="blog-details__tags" >
-                        <div class="blog-details__tags-item" v-for="article in getArticleItems" :key="article.id">
-                            {{ article.tag }}
+                        <h2>Tags</h2>
+                        <div class="blog-details__btn-box">
+                            <div class="blog-details__btn" v-for="article in getArticleItems" :key="article.id">
+                                {{ article.tag }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -75,10 +78,12 @@ export default {
     background: url("../assets/baner_blog_details.jpg") center (center / cover) no-repeat
 .blog-details
     &__article-item
-        margin-top: 40px
+        margin-bottom: 40px
         display: flex
         align-items: center
         gap: 20px
+    h2
+        font-family: DM Serif Display
     &__img
         img
             width: 360px
@@ -86,7 +91,8 @@ export default {
             border-bottom-right-radius: 14%
     &__wrapper
         display: flex
-        margin-top: 100px
+        margin-top: 120px
+        gap: 40px
     &__info-box
         width: 400px
     &__title
@@ -95,4 +101,25 @@ export default {
         font-style: normal
         font-weight: 400
         margin-bottom: 20px
+    &__btn-box
+        margin-top: 14px
+        width: 250px
+        height: 100px
+        display: flex
+        flex-wrap: wrap
+        gap: 10px
+        // justify-content: space-between
+    &__btn
+        // width: 119px
+        height: 41px
+        border-radius: 10px
+        // background: #292F36
+        background: #F4F0EC
+        text-align: center
+        padding: 9px 30px
+        transition: .4s
+        cursor: pointer
+    &__btn:hover
+        background: #292F36
+        color: #fff
 </style>
