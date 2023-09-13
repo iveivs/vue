@@ -22,6 +22,7 @@
                     </div>
 
                     </div>
+
                     <div class="blog-details__articles" v-else>
                         <div class="blog-details__article-item"  v-for="article in currentArticle" :key="article.id" >
                         <div class="blog-details__img">
@@ -74,8 +75,9 @@ export default {
 
     methods: {
         getTag(item){
-            this.currentArticle.push(item)
-            console.log(this.currentArticle);  
+            // this.currentArticle.push(item)
+            // console.log(this.currentArticle);  
+            this.currentArticle = this.getArticleItems.filter(elem => elem.tag === item.tag)
         },
         
         // getarticle(button) {
