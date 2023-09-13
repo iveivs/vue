@@ -10,7 +10,8 @@
             <div class="articles__item" v-for="article in getArticleItems" :key="article.id" :style="article">
                 <div class="articles__img">
                     <!-- <img :src="article.url" alt=""> -->
-                    <img src="../assets/artcl1.png" alt="">
+                    <!-- <img src="../assets/artcl1.png" alt=""> -->
+                    <img :src="require(`@/assets/${article.src}`)" alt="">
                     <div class="articles__small-block">{{ article.category }}</div>
                 </div>
                 <div class="articles__description">{{ article.titleText }}</div>
