@@ -15,7 +15,7 @@
                 </div>
                 <div class="articles__description">{{ article.titleText }}</div>
                 <div class="articles__box">
-                    <div class="articles__date">{{ someData }} </div>
+                    <div class="articles__date"> Data: {{ getCurrentData }} </div>
                     <div class="gallery__icon">
                         <img src="../assets/ar_icon.svg" alt="">
                     </div>
@@ -43,7 +43,7 @@ export default {
     },
     // ../assets/artcl2.png
     computed: {
-        ...mapGetters(['getArticleItems'])
+        ...mapGetters(['getArticleItems', 'getCurrentData'])
     },
 
     methods: {

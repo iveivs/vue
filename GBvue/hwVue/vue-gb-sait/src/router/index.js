@@ -15,6 +15,10 @@ const routes = [
         path: '/project',
         component: ProjectPage,
     },
+    {
+        path: '/project/:page',
+        component: ProjectPage,
+    },
 ]
 
 export default routes

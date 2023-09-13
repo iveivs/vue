@@ -15,16 +15,14 @@
                     <img src="../assets/latest_post.png" alt="">
                     <div class="latest-post__descriptions">
                         <div class="latest-post__descriptions_title">
-                            Low Cost Latest Invented Interior <br> Designing Ideas
+                            {{ getLastElement.titleText }} 
                         </div>
                         <p class="latest-post__descriptions_text">
-                            Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.
-                            <br>
-                            Lorem Ipsum is not simply random text. It has roots in a piece of classica.
+                            {{ getLastElement.text }}
                         </p>
                         <div class="latest-post__descriptions_box">
                             <div class="latest-post__descriptions_date"> 
-                                Data 
+                                Data {{ getCurrentData }}
                             </div>
                             <div class="latest-post__descriptions_icon">
                                 <img src="../assets/ar_icon.svg" alt="">
@@ -39,6 +37,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import ArticlesBlock from '../components/ArticlesBlock.vue';
 export default {
     name: 'BlogPage',
@@ -49,6 +48,10 @@ export default {
     },
     components: {
         ArticlesBlock,
+    },
+    computed: {
+        ...mapGetters(['getLastElement', 'getCurrentData']),
+        
     },
     methods: {
         
@@ -115,6 +118,5 @@ export default {
     &__descriptions-title
         font-size: 24px
         margin-bottom: 20px
-    
     
 </style>

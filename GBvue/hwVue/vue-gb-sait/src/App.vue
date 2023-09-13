@@ -52,5 +52,6 @@ export default {
   padding: 0
   box-sizing: border-box
   list-style-type: none
+  text-decoration: none
 
 </style>

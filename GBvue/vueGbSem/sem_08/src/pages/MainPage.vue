@@ -1,6 +1,6 @@
 <template>
     <div>
-        Main Page 123
+        Домашняя страница 123
     </div>
 </template>
 

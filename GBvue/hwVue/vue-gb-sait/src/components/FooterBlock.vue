@@ -88,4 +88,7 @@ export default {
             font-size: 40px
         &_img
             width: 34px
+*
+    list-style-type: none
+    text-decoration: none
 </style>

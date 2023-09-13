@@ -1,12 +1,12 @@
 <template>
     <div>
-        О нас 
+        Контакты 123
     </div>
 </template>
 
 <script>
 export default {
-    name: 'AboutPage',
+    name: 'ContactsPage',
 
     data() {
         return {

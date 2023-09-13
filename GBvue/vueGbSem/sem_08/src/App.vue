@@ -2,8 +2,9 @@
   <div id="app">
     <header>
       <nav>
-        <router-link to="/main">Main</router-link>
-        <router-link to="/about">About</router-link>
+        <router-link to="/main">Main</router-link> |
+        <router-link to="/about">About</router-link> |
+        <router-link to="/contacts">Контакты</router-link> |
       </nav>
     </header>
     <main>
