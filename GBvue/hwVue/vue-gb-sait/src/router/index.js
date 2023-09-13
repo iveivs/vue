@@ -2,6 +2,7 @@ import MainPage from "@/pages/MainPage.vue"
 import BlogPage from "@/pages/BlogPage.vue"
 import ProjectPage from "@/pages/ProjectPage.vue"
 import ProjectDetails from "@/components/ProjectDetails.vue"
+import ErrorPage from "@/components/ErrorPage.vue"
 
 const routes = [
     {
@@ -23,6 +24,10 @@ const routes = [
     {
         path: '/temp',
         component: ProjectDetails,
+    },
+    {
+        path: '/*',
+        component: ErrorPage,
     },
 ]
 
