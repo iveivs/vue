@@ -9,11 +9,11 @@
                 </div>
                 <div class="header__nav">
                     <ul>
-                        <router-link to="/main">Main</router-link>
-                        <router-link to="/blog">Blog</router-link>
-                        <router-link to="/project">Project</router-link>
-                        <router-link to="/temp">Temp</router-link>
-                        <router-link to="/temp2">Temp2</router-link>
+                        <router-link class="header__link" to="/main">Main</router-link>
+                        <router-link class="header__link" to="/blog">Blog</router-link>
+                        <router-link class="header__link" to="/project">Project</router-link>
+                        <router-link class="header__link" to="/temp">Temp</router-link>
+                        <router-link class="header__link" to="/temp2">Temp2</router-link>
                         <!-- <li class="header__nav_list"><a href="index.html">Home</a></li> -->
                         <!-- <li class="header__nav_list"><a href="">Project</a></li> -->
                         <!-- <li class="header__nav_list"><a href="articles.html">Articles</a></li> -->
@@ -41,6 +41,8 @@ export default {
 
 .header
     margin: 60px 0px 57px 0px
+    &__link
+        margin-left: 10px
     &__wrapper
         display: flex
         justify-content: space-between

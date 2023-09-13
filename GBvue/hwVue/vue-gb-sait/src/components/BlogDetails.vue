@@ -6,8 +6,24 @@
             <div class="container">
                 <div class="blog-details__wrapper" >
 
-                    <div class="blog-details__articles" >
-                        <div class="blog-details__article-item"  v-for="article in getArticleItems" :key="article.id">
+                    <div class="blog-details__articles" v-if="!currentArticle.length">
+                        <div class="blog-details__article-item"  v-for="article in getArticleItems" :key="article.id" >
+                        <div class="blog-details__img">
+                            <img :src="require(`@/assets/${article.src}`)" alt="">
+                        </div>
+                        <div class="blog-details__info-box">
+                            <div class="blog-details__title">
+                                {{ article.titleText }}
+                            </div>
+                            <div class="blog-details__text">
+                                {{ article.text }}
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                    <div class="blog-details__articles" v-else>
+                        <div class="blog-details__article-item"  v-for="article in currentArticle" :key="article.id" >
                         <div class="blog-details__img">
                             <img :src="require(`@/assets/${article.src}`)" alt="">
                         </div>
@@ -27,7 +43,7 @@
                     <div class="blog-details__tags" >
                         <h2>Tags</h2>
                         <div class="blog-details__btn-box">
-                            <div class="blog-details__btn" v-for="article in getArticleItems" :key="article.id">
+                            <div class="blog-details__btn" @click="getTag(article)" v-for="article in getArticleItems" :key="article.id" >
                                 {{ article.tag }}
                             </div>
                         </div>
@@ -45,16 +61,6 @@ export default {
 
     data() {
         return {
-            blogs: [
-                        { tag: 'kitchen', title: 'Lets Get Solution for Building Construction Work', text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem ssing hidden in the middle of text. All tend to repeat predefined chunks as necessary.'},
-                        { tag: 'bedroom', title: 'Design sprints are great', text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpmaximus.posuere in.Contrary to popular belief.There are many variations of passages of Lorem Ipsum available, but the majority have suffered.'},
-                        { tag: 'lorem', title: 'Lorem ipsum dolor sit.', text: 'Lorem ipsum dolor sit.'}
-                ],
-                tagbtn: [
-                    {title: 'kitchen'},
-                    {title:'bedroom'},
-                    {title:'lorem'},
-                ],
                 curentIndex: 0,
                 currentArticle: [],
         };
@@ -67,7 +73,14 @@ export default {
     },
 
     methods: {
+        getTag(item){
+            this.currentArticle.push(item)
+            console.log(this.currentArticle);  
+        },
         
+        // getarticle(button) {
+        //     this.currentArticle = this.getArticleItems.filter(elem => elem.tag === button)
+        // }
     },
 };
 </script>
