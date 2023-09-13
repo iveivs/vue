@@ -13,6 +13,7 @@
                         <router-link to="/blog">Blog</router-link>
                         <router-link to="/project">Project</router-link>
                         <router-link to="/temp">Temp</router-link>
+                        <router-link to="/temp2">Temp2</router-link>
                         <!-- <li class="header__nav_list"><a href="index.html">Home</a></li> -->
                         <!-- <li class="header__nav_list"><a href="">Project</a></li> -->
                         <!-- <li class="header__nav_list"><a href="articles.html">Articles</a></li> -->
