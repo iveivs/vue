@@ -39,7 +39,7 @@
                 </div>
                 <div class="project__pagination-box">
                     <!-- <div class="project__pagination_item" v-for="item in 3" :key="item.id">{{ item }}</div> -->
-                    <router-link 
+                    <router-link class="paginations"
                         v-for="page in 3" 
                         :to="`/project/${page}`" 
                         :key="page" 
@@ -85,10 +85,12 @@ export default {
                 {name: 'Bedroom Minimal 2', subtitle: 'Artchitecture / Decor', class: 'project__item project__item2', src: 'proj_gal2.jpg'},
                 {name: 'Bedroom Bedroom 3', subtitle: 'Decor / Artchitecture', class: 'project__item project__item3', src: 'proj_gal3.jpg'},
                 {name: 'Minimal Minimal 4', subtitle: 'Decor / Decor', class: 'project__item project__item4', src: 'proj_gal4.jpg'},
-                {name: 'Minimal Bedroom 5', subtitle: 'Decor / Artchitecture', class: 'project__item project__item5', src: 'proj_gal1.jpg'},
-                {name: 'Bedroom Minimal 6', subtitle: 'Artchitecture / Decor', class: 'project__item project__item6', src: 'proj_gal2.jpg'},
-                {name: 'Bedroom Bedroom 7', subtitle: 'Decor / Artchitecture', class: 'project__item project__item7', src: 'proj_gal3.jpg'},
-                {name: 'Minimal Minimal 8', subtitle: 'Decor / Decor', class: 'project__item project__item8', src: 'proj_gal4.jpg'},
+                {name: 'Minimal Bedroom 5', subtitle: 'Decor / Artchitecture', class: 'project__item project__item5', src: 'proj_gal5.jpg'},
+                {name: 'Bedroom Minimal 6', subtitle: 'Artchitecture / Decor', class: 'project__item project__item6', src: 'proj_gal6.jpg'},
+                {name: 'Bedroom Bedroom 7', subtitle: 'Decor / Artchitecture', class: 'project__item project__item7', src: 'proj_gal7.jpg'},
+                {name: 'Minimal Minimal 8', subtitle: 'Decor / Decor', class: 'project__item project__item8', src: 'proj_gal1.jpg'},
+                {name: 'Minimal Bedroom 1', subtitle: 'Decor / Artchitecture', class: 'project__item project__item1', src: 'proj_gal1.jpg'},
+                {name: 'Bedroom Minimal 2', subtitle: 'Artchitecture / Decor', class: 'project__item project__item2', src: 'proj_gal2.jpg'},
                 // {name: 'Temp5', class: 'project__item project__item5'},
                 // {name: 'Temp6', class: 'project__item project__item6'},
                 // {name: 'Temp7', class: 'project__item project__item7'},
@@ -151,14 +153,6 @@ export default {
         display: flex
         justify-content: center
         gap: 10px
-    &__pagination_item
-        border: 1px solid #CDA274
-        padding: 14px
-        width: 52px
-        height: 52px
-        border-radius: 50%
-        text-align: center
-        
     &__gallereya
         display: grid
         grid-template-columns: repeat(2, 585px)
@@ -174,6 +168,7 @@ export default {
                 height: 850px
     &__item2
         min-height: 600px
+        grid-column: 2 / 3
         .project__img-box
             img
                 height: 519px
@@ -192,29 +187,56 @@ export default {
                 height: 850px
     &__item5
         grid-column: 1 / 2
-        grid-row: 4 / 6
+        grid-row: 1 / 3
         min-height: 700px
         .project__img-box
             img
                 height: 850px
     &__item6
         min-height: 600px
+        grid-column: 2 / 3
         .project__img-box
             img
                 height: 519px
     &__item7
         grid-column: 1 / 2
-        grid-row: 6 / 7
+        grid-row: 3 / 4
         min-height: 600px
         .project__img-box
             img
                 height: 519px
     &__item8
-        grid-row: 5 / 7
+        grid-row: 2 / 4
         min-height: 700px
         .project__img-box
             img
                 height: 850px
+    // &__item5
+    //     grid-column: 1 / 2
+    //     grid-row: 4 / 6
+    //     min-height: 700px
+    //     .project__img-box
+    //         img
+    //             height: 850px
+    // &__item6
+    //     min-height: 600px
+    //     grid-column: 2 / 3
+    //     .project__img-box
+    //         img
+    //             height: 519px
+    // &__item7
+    //     grid-column: 1 / 2
+    //     grid-row: 6 / 7
+    //     min-height: 600px
+    //     .project__img-box
+    //         img
+    //             height: 519px
+    // &__item8
+    //     grid-row: 5 / 7
+    //     min-height: 700px
+    //     .project__img-box
+    //         img
+    //             height: 850px
 .banner
     height: 356px
     background: url("../assets/baner_project.jpg") center (center / cover) no-repeat
@@ -248,5 +270,11 @@ button
     color: inherit
     background-color: transparent
     cursor: pointer
-
+.paginations
+    border: 1px solid #CDA274
+    padding: 14px
+    width: 52px
+    height: 52px
+    border-radius: 50%
+    text-align: center
 </style>
