@@ -23,11 +23,11 @@ const routes = [
         component: ProjectPage,
     },
     {
-        path: '/temp',
+        path: '/project-det',
         component: ProjectDetails,
     },
     {
-        path: '/temp2',
+        path: '/blog-det',
         component: BlogDetails,
     },
     {

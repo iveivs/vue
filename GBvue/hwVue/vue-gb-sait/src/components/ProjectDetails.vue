@@ -18,6 +18,15 @@
                     <div class="project-det__slider">
                         <img src="../assets/proj_slider.jpg" alt="">
                     </div>
+                    <div class="project__pagination-box">
+                    <router-link class="paginations"
+                        v-for="page in 3" 
+                        :to="`/project/${page}`" 
+                        :key="page" 
+                        >
+                        {{ page  }}
+                    </router-link>
+                </div>
                 </div>
             </div>
         </section>

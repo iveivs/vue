@@ -15,14 +15,9 @@
                     <div class="project__btn">Bed Room</div>
                     <div class="project__btn">Kitchan</div>
                     <div class="project__btn">Living Area</div>
-                    <!-- <button>Bathroom</button>
-                    <button>Bed Room</button>
-                    <button>Bed Room</button>
-                    <button>Living Area</button> -->
                 </div>
                 <div class="project__gallereya">
                     <div :class="item.class" v-for="item in currentProductList" :key="item.id">
-                        <!-- {{ item.name }} -->
                         <div class="project__img-box">
                             <img :src="require(`@/assets/${item.src}`)" alt="">
                         </div>
@@ -32,13 +27,12 @@
                                 <div class="project__descr-box_subtitle">{{ item.subtitle }}</div>
                             </div>
                             <div class="gallery__icon">
-                                <img src="../assets/ar_icon.svg" alt="">
+                                <router-link class="header__link" to="/project-det"><img src="../assets/ar_icon.svg" alt=""></router-link>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="project__pagination-box">
-                    <!-- <div class="project__pagination_item" v-for="item in 3" :key="item.id">{{ item }}</div> -->
                     <router-link class="paginations"
                         v-for="page in 3" 
                         :to="`/project/${page}`" 
@@ -47,19 +41,6 @@
                         {{ page  }}
                     </router-link>
                 </div>
-
-                <!-- <h3>Catalog</h3>
-                <div v-for="product in currentProductList" :key="product.id">
-                <h5>{{ product.name }}</h5>
-                <p>{{ product.price }}</p>
-                </div> -->
-                <!-- <router-link 
-                    v-for="page in 3" 
-                    :to="`/project/${page}`" 
-                    :key="page" 
-                    >
-                    {{ page  }}
-                </router-link> -->
             </div>
         </section>
     </div>
@@ -91,10 +72,6 @@ export default {
                 {name: 'Minimal Minimal 8', subtitle: 'Decor / Decor', class: 'project__item project__item8', src: 'proj_gal1.jpg'},
                 {name: 'Minimal Bedroom 1', subtitle: 'Decor / Artchitecture', class: 'project__item project__item1', src: 'proj_gal1.jpg'},
                 {name: 'Bedroom Minimal 2', subtitle: 'Artchitecture / Decor', class: 'project__item project__item2', src: 'proj_gal2.jpg'},
-                // {name: 'Temp5', class: 'project__item project__item5'},
-                // {name: 'Temp6', class: 'project__item project__item6'},
-                // {name: 'Temp7', class: 'project__item project__item7'},
-                // {name: 'Temp8', class: 'project__item project__item8'},
             ],
             currentPage: 1,
             itemsPerPage: 4,

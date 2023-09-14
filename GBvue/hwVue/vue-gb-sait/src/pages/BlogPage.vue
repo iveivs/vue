@@ -25,7 +25,7 @@
                                 Data {{ getCurrentData }}
                             </div>
                             <div class="latest-post__descriptions_icon">
-                                <img src="../assets/ar_icon.svg" alt="">
+                                <router-link class="header__link" to="/blog-det"><img src="../assets/ar_icon.svg" alt=""></router-link>
                             </div>
                         </div>
                     </div>
