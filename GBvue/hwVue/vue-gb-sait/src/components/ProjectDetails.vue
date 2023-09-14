@@ -15,18 +15,22 @@
                         quis nibh id, pellentesque arcu. Donec a pellentesque Cras erat enim, gravida non ante vitae,elequis convallis elit, 
                         in viverra felis. Donec ultrices tellus vitae iaculisvd porta. Proin tincidunt ligula id purus porttitor.
                     </div>
-                    <div class="project-det__slider">
-                        <img src="../assets/proj_slider.jpg" alt="">
+
+                    <div class="project-det__slider" v-for="item in currentProductList" :key="item.id">
+                        <!-- <img src="../assets/proj_slider.jpg" alt=""> -->
+                        <img :src="require(`@/assets/${item.src}`)" alt="">
+                        <div class="project-det__number">{{ item.id }}</div>
                     </div>
-                    <div class="project__pagination-box">
-                    <router-link class="paginations"
-                        v-for="page in 3" 
-                        :to="`/project/${page}`" 
-                        :key="page" 
-                        >
-                        {{ page  }}
-                    </router-link>
-                </div>
+
+                    <div class="project-det__pagination-box">
+                        <router-link class="paginations"
+                            v-for="somepage in 3" 
+                            :to="`/project-det/${somepage}`" 
+                            :key="somepage" 
+                            >
+                            {{ somepage  }}
+                        </router-link>
+                    </div>
                 </div>
             </div>
         </section>
@@ -36,15 +40,34 @@
 <script>
 export default {
     name: 'ProjectDetails',
-
+    watch: {
+        $route(to, from) {
+            // const page = this.$route.params.page // ещё один вариант
+            const { somepage }  = this.$route.params
+            // if(page) this.currentPage = page // необязательная проверка
+            this.currentPage = +somepage
+            console.log(to, from);
+        }
+    },
     data() {
         return {
             imgList: [
-                {src: 'proj_slider.jpg'}
-            ]
+                {id: 1, src: 'proj_slider.jpg'},
+                {id: 2, src: 'proj_slider.jpg'},
+                {id: 3, src: 'proj_slider.jpg'},
+            ],
+            currentPage: 1,
+            itemsPerPage: 1,
         };
     },
-
+    computed: {
+        currentProductList() {
+            const {currentPage , itemsPerPage} = this
+            const startIndex = (currentPage - 1) * itemsPerPage
+            const endIndex = startIndex + itemsPerPage
+            return this.imgList.slice(startIndex, endIndex)
+        }
+    },
     mounted() {
         
     },
@@ -69,13 +92,36 @@ export default {
         font-size: 22px
         margin: 0 auto
     &__slider
+        margin: 0 auto
         margin-top: 80px
         text-align: center
+        position: relative
+        width: 800px
         img
             width: 800px
             border-radius: 30px
+    &__pagination-box
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: 10px
+        margin: 0 auto
+        margin-top: 20px
+    &__number
+        position: absolute
+        top: 100px
+        left: 100px
+        font-size: 300px
+        color: rgba(44, 62, 80, .3)
 .banner
     height: 356px
     background: url("../assets/proj_det_baner.jpg") center (center / cover) no-repeat
+.paginations
+    min-width: 20px
+    height: 20px
+    border: 1px solid #CDA274
+    border-radius: 100%
+    color: #fff
+    text-align: center
 
 </style>

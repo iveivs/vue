@@ -27,6 +27,10 @@ const routes = [
         component: ProjectDetails,
     },
     {
+        path: '/project-det/:somepage',
+        component: ProjectDetails,
+    },
+    {
         path: '/blog-det',
         component: BlogDetails,
     },

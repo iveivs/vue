@@ -12,17 +12,30 @@ export default new Vuex.Store ({
             {id:2, tag: 'living', url: '../assets/artcl2.png', src: 'artcl2.png', category: 'Living Design', titleText: 'Cost Latest Invented Interior Designing Ideas.', backgroundColor: '#F4F0EC', text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.Lorem Ipsum is not simply random text. It has roots in a piece of classica Contrary to popular belief.Lorem Ipsum is not simply random text. It has roots in a piece of classica'},
             {id:3, tag: 'new interior', url: '../assets/artcl3.png' , src: 'artcl3.png', category: 'Interior Design', titleText: 'Best For Any Office & Business Interior Solution', backgroundColor: 'white', text: 'Lorem ipsum dolor sit amet, adipiscing Aliquam eu sem vitae turpis dignissim maximus.posuere in.Contrary to popular belief.Lorem Ipsum is na Contrary to popular belief.Lorem Ipsum is not simply random text. It has roots in a piece of classica'},
         ],
+        projectItems: [ 
+            {name: 'Minimal Bedroom 1', subtitle: 'Decor / Artchitecture', class: 'project__item project__item1', src: 'proj_gal1.jpg'},
+            {name: 'Bedroom Minimal 2', subtitle: 'Artchitecture / Decor', class: 'project__item project__item2', src: 'proj_gal2.jpg'},
+            {name: 'Bedroom Bedroom 3', subtitle: 'Decor / Artchitecture', class: 'project__item project__item3', src: 'proj_gal3.jpg'},
+            {name: 'Minimal Minimal 4', subtitle: 'Decor / Decor', class: 'project__item project__item4', src: 'proj_gal4.jpg'},
+            {name: 'Minimal Bedroom 5', subtitle: 'Decor / Artchitecture', class: 'project__item project__item5', src: 'proj_gal5.jpg'},
+            {name: 'Bedroom Minimal 6', subtitle: 'Artchitecture / Decor', class: 'project__item project__item6', src: 'proj_gal6.jpg'},
+            {name: 'Bedroom Bedroom 7', subtitle: 'Decor / Artchitecture', class: 'project__item project__item7', src: 'proj_gal7.jpg'},
+            {name: 'Minimal Minimal 8', subtitle: 'Decor / Decor', class: 'project__item project__item8', src: 'proj_gal1.jpg'},
+            {name: 'Minimal Bedroom 1', subtitle: 'Decor / Artchitecture', class: 'project__item project__item1', src: 'proj_gal1.jpg'},
+            {name: 'Bedroom Minimal 2', subtitle: 'Artchitecture / Decor', class: 'project__item project__item2', src: 'proj_gal2.jpg'},
+        ],
         dataNow: ''
         
     },
     mutations: {
-        // SET_ARTICLE_ITEMS(state, article) {
-        //     state.articleItems = article
-        // }
+
     },
     getters: {
         getArticleItems(state) {
             return state.articleItems
+        },
+        getProjectItems(state) {
+            return state.projectItems
         },
         getLastElement(state) {
             return state.articleItems[state.articleItems.length -1]

@@ -18,7 +18,8 @@
                 <div class="articles__box">
                     <div class="articles__date"> Data: {{ getCurrentData }} </div>
                     <div class="gallery__icon">
-                        <img src="../assets/ar_icon.svg" alt="">
+                        <!-- <img src="../assets/ar_icon.svg" alt=""> -->
+                        <router-link class="header__link" to="/blog-det"><img src="../assets/ar_icon.svg" alt=""></router-link>
                     </div>
                 </div>
             </div>

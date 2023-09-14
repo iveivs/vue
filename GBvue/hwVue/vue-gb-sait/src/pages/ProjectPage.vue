@@ -17,7 +17,7 @@
                     <div class="project__btn">Living Area</div>
                 </div>
                 <div class="project__gallereya">
-                    <div :class="item.class" v-for="item in currentProductList" :key="item.id">
+                    <div :class="item.class" v-for="item in currentProductList2" :key="item.id">
                         <div class="project__img-box">
                             <img :src="require(`@/assets/${item.src}`)" alt="">
                         </div>
@@ -47,6 +47,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 export default {
     name: 'ProjectPage',
     watch: {
@@ -61,29 +62,18 @@ export default {
 
     data() {
         return {
-            tempItems: [ 
-                {name: 'Minimal Bedroom 1', subtitle: 'Decor / Artchitecture', class: 'project__item project__item1', src: 'proj_gal1.jpg'},
-                {name: 'Bedroom Minimal 2', subtitle: 'Artchitecture / Decor', class: 'project__item project__item2', src: 'proj_gal2.jpg'},
-                {name: 'Bedroom Bedroom 3', subtitle: 'Decor / Artchitecture', class: 'project__item project__item3', src: 'proj_gal3.jpg'},
-                {name: 'Minimal Minimal 4', subtitle: 'Decor / Decor', class: 'project__item project__item4', src: 'proj_gal4.jpg'},
-                {name: 'Minimal Bedroom 5', subtitle: 'Decor / Artchitecture', class: 'project__item project__item5', src: 'proj_gal5.jpg'},
-                {name: 'Bedroom Minimal 6', subtitle: 'Artchitecture / Decor', class: 'project__item project__item6', src: 'proj_gal6.jpg'},
-                {name: 'Bedroom Bedroom 7', subtitle: 'Decor / Artchitecture', class: 'project__item project__item7', src: 'proj_gal7.jpg'},
-                {name: 'Minimal Minimal 8', subtitle: 'Decor / Decor', class: 'project__item project__item8', src: 'proj_gal1.jpg'},
-                {name: 'Minimal Bedroom 1', subtitle: 'Decor / Artchitecture', class: 'project__item project__item1', src: 'proj_gal1.jpg'},
-                {name: 'Bedroom Minimal 2', subtitle: 'Artchitecture / Decor', class: 'project__item project__item2', src: 'proj_gal2.jpg'},
-            ],
             currentPage: 1,
             itemsPerPage: 4,
         };
     },
     computed: {
-        currentProductList() {
+        currentProductList2() {
             const {currentPage , itemsPerPage} = this
             const startIndex = (currentPage - 1) * itemsPerPage
             const endIndex = startIndex + itemsPerPage
-            return this.tempItems.slice(startIndex, endIndex)
-        }
+            return this.getProjectItems.slice(startIndex, endIndex)
+        },
+        ...mapGetters(['getProjectItems'])
     },
     mounted() {
         
@@ -135,7 +125,6 @@ export default {
         grid-template-columns: repeat(2, 585px)
         gap: 20px
     &__item
-        // border: 1px solid #222
     &__item1
         grid-column: 1 / 2
         grid-row: 1 / 3
