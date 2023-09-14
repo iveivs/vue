@@ -109,9 +109,10 @@ export default {
         margin-top: 20px
     &__number
         position: absolute
-        top: 100px
-        left: 100px
+        top: 50px
+        left: 300px
         font-size: 300px
+        font-weight: 700
         color: rgba(44, 62, 80, .3)
 .banner
     height: 356px
@@ -123,5 +124,7 @@ export default {
     border-radius: 100%
     color: #fff
     text-align: center
-
+    transition: .3s
+.paginations:hover
+    transform: scale(1.2)
 </style>

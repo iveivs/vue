@@ -13,7 +13,7 @@
                         <div class="gallery__subtitle">Decor / Artchitecture</div>
                     </div>
                     <div class="gallery__icon">
-                        <img src="img/ar_icon.svg" alt="">
+                        <router-link class="header__link" to="/project-det"><img src="../assets/ar_icon.svg" alt=""></router-link>
                     </div>
                 </div>
             </div>
@@ -26,7 +26,7 @@
                         <div class="gallery__subtitle">Decor / Artchitecture</div>
                     </div>
                     <div class="gallery__icon">
-                        <img src="img/ar_icon.svg" alt="">
+                        <router-link class="header__link" to="/project-det"><img src="../assets/ar_icon.svg" alt=""></router-link>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                         <div class="gallery__subtitle">Decor / Artchitecture</div>
                     </div>
                     <div class="gallery__icon">
-                        <img src="img/ar_icon.svg" alt="">
+                        <router-link class="header__link" to="/project-det"><img src="../assets/ar_icon.svg" alt=""></router-link>
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                         <div class="gallery__subtitle">Decor / Artchitecture</div>
                     </div>
                     <div class="gallery__icon">
-                        <img src="img/ar_icon.svg" alt="">
+                        <router-link class="header__link" to="/project-det"><img src="../assets/ar_icon.svg" alt=""></router-link>
                     </div>
                 </div>
             </div>
@@ -95,7 +95,7 @@ export default {
         width: 547px
         margin-bottom: 56px
     &__img
-        margin-bottom: 24px
+        margin-bottom: 20px
     &__info
         display: flex
         justify-content: space-between
@@ -107,4 +107,5 @@ export default {
     &__icon
         width: 52px
         height: 52px
+        margin-right: 14px
 </style>

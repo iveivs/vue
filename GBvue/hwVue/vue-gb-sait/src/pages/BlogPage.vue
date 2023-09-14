@@ -12,7 +12,8 @@
             <div class="latest-post">
                 <h2 class="latest-post__title">Latest Post</h2>
                 <div class="latest-post__wrapper">
-                    <img src="../assets/latest_post.png" alt="">
+                    <!-- <img src="../assets/latest_post.png" alt=""> -->
+                    <img :src="require(`@/assets/${getLastElement.src}`)" alt="">
                     <div class="latest-post__descriptions">
                         <div class="latest-post__descriptions_title">
                             {{ getLastElement.titleText }} 
@@ -66,14 +67,12 @@ export default {
     &__wrapper
         margin-top: 300px
         width: 503px
-        // padding: 180px 78px
         padding-top: 180px
         margin: 0 auto
         text-align: center
         height: 300px
     &__content
         background-color: #fff
-        // height: 278px
         width: 503px
         padding: 51px 78px
         border-radius: 30px 30px 0px 0px
@@ -97,6 +96,8 @@ export default {
         gap: 65px
         img
             height: 480px
+            border-bottom-left-radius: 14%
+            border-bottom-right-radius: 14%
     &__descriptions
         &_title
             font-size: 25px
