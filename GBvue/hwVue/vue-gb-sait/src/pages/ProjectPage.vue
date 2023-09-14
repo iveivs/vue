@@ -11,12 +11,15 @@
         <section class="project">
             <div class="container">
                 <div class="project__link-box">
-                    <div class="project__btn">Bathroom</div>
+                    <div class="project__btn" v-for="button in buttonItems" :key="button.id" @click="getTagBtn(button.buttonTag)">
+                    {{ button.buttonName }}
+                    </div>
+                    <!-- <div class="project__btn">Bathroom</div>
                     <div class="project__btn">Bed Room</div>
                     <div class="project__btn">Kitchan</div>
-                    <div class="project__btn">Living Area</div>
+                    <div class="project__btn">Living Area</div> -->
                 </div>
-                <div class="project__gallereya">
+                <div class="project__gallereya" v-if="!currentArticle.length">
                     <div :class="item.class" v-for="item in currentProductList2" :key="item.id">
                         <div class="project__img-box">
                             <img :src="require(`@/assets/${item.src}`)" alt="">
@@ -32,6 +35,24 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="project__gallereya" v-else>
+                    <div :class="item.class" v-for="item in currentArticle" :key="item.id">
+                        <div class="project__img-box">
+                            <img :src="require(`@/assets/${item.src}`)" alt="">
+                        </div>
+                        <div class="project__descr-box">
+                            <div class="project__descr-box_text">
+                                <div class="project__descr-box_title">{{ item.name }}</div>
+                                <div class="project__descr-box_subtitle">{{ item.subtitle }}</div>
+                            </div>
+                            <div class="gallery__icon">
+                                <router-link class="header__link" to="/project-det"><img src="../assets/ar_icon.svg" alt=""></router-link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="project__pagination-box">
                     <router-link class="paginations"
                         v-for="page in 3" 
@@ -62,8 +83,15 @@ export default {
 
     data() {
         return {
+            buttonItems: [
+                {id: 1, buttonName: 'Bathroom', buttonTag: 'Bathroom'},
+                {id: 2, buttonName: 'Bed Room', buttonTag: 'Bed Room'},
+                {id: 3, buttonName: 'Kitchan', buttonTag: 'Bathroom'},
+                {id: 4, buttonName: 'Living Area', buttonTag: 'Bed Room'}
+            ],
             currentPage: 1,
             itemsPerPage: 4,
+            currentArticle: [],
         };
     },
     computed: {
@@ -80,7 +108,14 @@ export default {
     },
 
     methods: {
-        
+        getTagBtn(item){
+            // this.currentArticle.push(item)
+            // console.log(this.currentArticle);  
+            console.log(item);
+            console.log(item.buttonTag);
+            this.currentArticle = this.getProjectItems.filter(elem => elem.buttonTag === item)
+            
+        },
     },
 };
 </script>
@@ -243,4 +278,5 @@ button
     height: 52px
     border-radius: 50%
     text-align: center
+    color: #222
 </style>
