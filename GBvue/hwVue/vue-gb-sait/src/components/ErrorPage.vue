@@ -58,9 +58,19 @@ export default {
         font-size: 35px
         font-style: normal
         font-weight: 400
+        margin-bottom: 40px
     &__img
         img
             width: 600px
             height: 700px
             border-bottom-left-radius: 30%
+    &__btn
+        width: 250px
+        height: 75px
+        border-radius: 18px
+        background: #292F36
+        padding: 26px 0px
+        text-align: center
+        box-shadow: 0px 10px 20px 0px rgba(192, 192, 192, 0.35)
+        color: #fff
 </style>
