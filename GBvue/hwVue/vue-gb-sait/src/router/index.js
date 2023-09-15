@@ -7,6 +7,10 @@ import BlogDetails from "@/components/BlogDetails.vue"
 
 const routes = [
     {
+        path: '/',
+        component: MainPage,
+    },
+    {
         path: '/main',
         component: MainPage,
     },
