@@ -108,9 +108,7 @@ export default {
     },
 
     methods: {
-        getTagBtn(item){
-            // this.currentArticle.push(item)
-            // console.log(this.currentArticle);  
+        getTagBtn(item){ 
             console.log(item);
             console.log(item.buttonTag);
             this.currentArticle = this.getProjectItems.filter(elem => elem.buttonTag === item)
@@ -244,14 +242,12 @@ export default {
     &__wrapper
         margin-top: 300px
         width: 503px
-        // padding: 180px 78px
         padding-top: 180px
         margin: 0 auto
         text-align: center
         height: 300px
     &__content
         background-color: #fff
-        // height: 278px
         width: 503px
         padding: 51px 78px
         border-radius: 30px 30px 0px 0px

@@ -12,7 +12,6 @@
             <div class="latest-post">
                 <h2 class="latest-post__title">Latest Post</h2>
                 <div class="latest-post__wrapper">
-                    <!-- <img src="../assets/latest_post.png" alt=""> -->
                     <img :src="require(`@/assets/${getLastElement.src}`)" alt="">
                     <div class="latest-post__descriptions">
                         <div class="latest-post__descriptions_title">

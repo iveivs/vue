@@ -18,6 +18,9 @@
                             <div class="blog-details__text">
                                 {{ article.text }}
                             </div>
+                            <div class="blog-details__data">
+                                {{ getCurrentData }}
+                            </div>
                         </div>
                     </div>
 
@@ -34,6 +37,9 @@
                             </div>
                             <div class="blog-details__text">
                                 {{ article.text }}
+                            </div>
+                            <div class="blog-details__data">
+                                {{ getCurrentData }}
                             </div>
                         </div>
                     </div>
@@ -67,22 +73,16 @@ export default {
         };
     },
     computed: {
-        ...mapGetters(['getArticleItems'])
+        ...mapGetters(['getArticleItems', 'getCurrentData'])
     },
     mounted() {
         
     },
 
     methods: {
-        getTag(item){
-            // this.currentArticle.push(item)
-            // console.log(this.currentArticle);  
+        getTag(item){ 
             this.currentArticle = this.getArticleItems.filter(elem => elem.tag === item.tag)
         },
-        
-        // getarticle(button) {
-        //     this.currentArticle = this.getArticleItems.filter(elem => elem.tag === button)
-        // }
     },
 };
 </script>
@@ -123,12 +123,11 @@ export default {
         display: flex
         flex-wrap: wrap
         gap: 10px
-        // justify-content: space-between
+    &__text
+        margin-bottom: 12px
     &__btn
-        // width: 119px
         height: 41px
         border-radius: 10px
-        // background: #292F36
         background: #F4F0EC
         text-align: center
         padding: 9px 30px

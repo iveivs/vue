@@ -46,11 +46,6 @@ export default {
             
         };
     },
-
-    mounted() {
-        
-    },
-
     methods: {
         
     },
